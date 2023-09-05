@@ -25,10 +25,9 @@ export class LoginPageComponent implements OnInit{
   }
 
   onSubmit(){
-    console.log(this.form.value)
     this.userService.login(this.form.value.username, this.form.value.password).subscribe(response => {
       // Traitez la réponse de l'API ici
-      console.log(response)
+      console.log(response, 'passed')
     }, error => {
       // Gérez les erreurs de l'API ici
       console.log(error)

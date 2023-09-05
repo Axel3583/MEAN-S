@@ -1,5 +1,4 @@
-
-export const env = {
-    production : false,
-    apiUrl : "http://localhost:3000/auth/"
-}
+export const backendUrl = {
+    production: false,
+    apiUrl: "http://localhost:3000"
+};
