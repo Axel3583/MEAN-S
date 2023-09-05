@@ -25,7 +25,7 @@ services:
     build:
       context: ./front-end-angular
     ports:
-      - "4200:4200"
+      - "4200:80"
     networks:
       - mean_network
     depends_on:
