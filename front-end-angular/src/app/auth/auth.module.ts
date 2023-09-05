@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginPageComponent } from './component/login-page/login-page.component';
+import { CoreModule } from '../core/core.module';
+import { UserService } from './service/user.service';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { LoginPageComponent } from './component/login-page/login-page.component'
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
-  ]
+    AuthRoutingModule,
+    CoreModule
+  ],
+  providers: [UserService]
 })
 export class AuthModule { }

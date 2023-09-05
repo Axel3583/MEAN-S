@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './component/header/header.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -12,11 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule
+    ReactiveFormsModule
   ], 
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    ReactiveFormsModule
   ]
 })
 export class CoreModule { }
