@@ -61,8 +61,9 @@ De plus, il intègre Docker pour la gestion des conteneurs et Elasticsearch pour
               3. Installer les dépendances du frontend :
               
                 cd ../front-end-angular
+              
+                npm install
 
-  npm install
 
 # Configuration
 
