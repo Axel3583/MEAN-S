@@ -13,17 +13,14 @@ RUN npm install
 # Copiez le reste des fichiers
 COPY . .
 
-# Construisez l'application
-RUN npm run build
+# Construisez l'application en mode production
+RUN npm run build --prod
 
 # Utilisez une image légère pour exécuter l'application
 FROM nginx:latest
 
-# Supprimez les fichiers par défaut de Nginx
-RUN rm -rf /usr/share/nginx/html/*
-
-# Copiez les fichiers de construction depuis l'étape build dans le répertoire approprié de Nginx
-COPY --from=build /usr/src/app/dist/front-end-angular /usr/share/nginx/html
+# Copiez les fichiers de construction dans le répertoire approprié de Nginx
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
 
 # Exposez le port d'écoute de Nginx
 EXPOSE 80
