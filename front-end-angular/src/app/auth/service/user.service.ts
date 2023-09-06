@@ -7,10 +7,12 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   constructor(private httpClient: HttpClient) { }
+  
 
   login(username: string, password: number): Observable<any> {
     const body = { username, password };
     const headers = { 'Content-Type': 'application/json' };
-    return this.httpClient.post(`${backendUrl.apiUrl}/auth/login`, body, { headers }); // Utilisez backendUrl.apiUrl
+    console.log(backendUrl.apiUrl)
+    return this.httpClient.post(`${backendUrl.apiUrl}/auth/login`, body, { headers });
   }
 }

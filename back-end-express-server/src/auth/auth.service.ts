@@ -7,12 +7,15 @@ export class AuthService {
 
   async signIn(username: string, pass: string): Promise<any> {
     const user = await this.usersService.findOne(username);
-    if (user?.password !== pass) {
+    if (!user || user.password !== pass) {
+      console.log('Credentials incorrects :)');
       throw new UnauthorizedException();
     }
     const { password, ...result } = user;
-    // TODO: Generate a JWT and return it here
-    // instead of the user object
-    console.log(result, password);
+    return {
+      ...result,
+      password,
+      roles: user.roles,
+    };
   }
 }

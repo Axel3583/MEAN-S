@@ -20,6 +20,8 @@ services:
       - mean_network
     depends_on:
       - mongodb
+    volumes:
+      - /Users/macbook/Desktop/Project/MEAN/back-end-express-server:/usr/src/app
 
   frontend:
     build:
@@ -30,6 +32,8 @@ services:
       - mean_network
     depends_on:
       - backend
+    volumes:
+      - /Users/macbook/Desktop/Project/MEAN/front-end-angular:/usr/src/app
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
     environment:
