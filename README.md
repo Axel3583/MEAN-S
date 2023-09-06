@@ -6,9 +6,9 @@
 # Aperçu
 # Technologies Utilisées
 # Mise en Place
-  # . Prérequis
-  # . Installation
-  # . Configuration
+      # . Prérequis
+      # . Installation
+      # . Configuration
 # Structure du Projet
 # Utilisation
 # Développement
