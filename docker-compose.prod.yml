@@ -19,13 +19,12 @@ services:
     networks:
       - public_net  # Utilise le réseau public pour MongoDB
 
-  # Service Backend (Node.js)
+ # Service Backend (Node.js)
   backend:
     build:
       context: ./back-end-express-server  # Chemin vers le code source du backend
-    environment:
-      - NODE_ENV=production  # Défini l'environnement de production
-      - VOLUME_PATH=/usr/src/app  # Définit le chemin du code source dans le conteneur
+    env_file:
+      - .env  # Inclut les variables d'environnement à partir du fichier .env
     ports:
       - "3000:3000"  # Associe le port 3000 de l'hôte au port 3000 du conteneur backend
     depends_on:
