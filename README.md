@@ -6,9 +6,9 @@
 # Aperçu
 # Technologies Utilisées
 # Mise en Place
-      # . Prérequis
-      # . Installation
-      # . Configuration
+       . Prérequis
+       . Installation
+       . Configuration
 # Structure du Projet
 # Utilisation
 # Développement
@@ -25,12 +25,12 @@ Il offre une architecture robuste basée sur MongoDB, Express.js, Angular et Nod
 De plus, il intègre Docker pour la gestion des conteneurs et Elasticsearch pour la recherche et l'analyse des logs.
 
 # Technologies Utilisées
- . Node.js
- . Express.js
- . MongoDB
- . Angular
- . Docker
- . Elasticsearch
+             . Node.js
+             . Express.js
+             . MongoDB
+             . Angular
+             . Docker
+             . Elasticsearch
 
 # Mise en Place
 
