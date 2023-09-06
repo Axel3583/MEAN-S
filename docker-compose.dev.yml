@@ -5,7 +5,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongodb_data:/data/db
+      - VOLUME_DB:/data/db
     networks:
       - mean_network
 
@@ -13,7 +13,8 @@ services:
     build:
       context: ./back-end-express-server
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
+      - VOLUME_PATH=/usr/src/app
     ports:
       - "3000:3000"
     networks:
@@ -21,7 +22,7 @@ services:
     depends_on:
       - mongodb
     volumes:
-      - /Users/macbook/Desktop/Project/MEAN/back-end-express-server:/usr/src/app
+      - ${VOLUME_PATH}:/usr/src/app
 
   frontend:
     build:
