@@ -38,44 +38,44 @@ De plus, il intègre Docker pour la gestion des conteneurs et Elasticsearch pour
 
 # Prérequis
 
-  Node.js (version latest)
-  MongoDB (version latest)
-  Docker (version latest)
-  Elasticsearch (version latest)
-  Angular CLI (version latest)
+                Node.js (version latest)
+                MongoDB (version latest)
+                Docker (version latest)
+                Elasticsearch (version latest)
+                Angular CLI (version latest)
 
 # Installation
 
- 1. Cloner le référentiel depuis GitHub :
-
-  git clone https://github.com/Axel3583/MEAN-S.git
-  cd votre-projet
-
- 2. Installer les dépendances du backend :
-
-  cd back-end-express-server
-
-  npm install
-
-3. Installer les dépendances du frontend :
-
-  cd ../front-end-angular
+               1. Cloner le référentiel depuis GitHub :
+              
+                git clone https://github.com/Axel3583/MEAN-S.git
+                cd votre-projet
+              
+               2. Installer les dépendances du backend :
+              
+                cd back-end-express-server
+              
+                npm install
+              
+              3. Installer les dépendances du frontend :
+              
+                cd ../front-end-angular
 
   npm install
 
 # Configuration
 
-1. Créez un fichier .env à la racine du répertoire back-end-express-server et définissez les variables d'environnement requises :
-
-NODE_ENV=development
-MONGODB_URI=mongodatabase://localhost:xxxx/monappdb
-PORT=xxxx
-
-Assurez-vous d'ajuster les valeurs en fonction de votre environnement.
-
-2. Configurez le fichier .env.prod dans back-end-express-server pour les variables d'environnement de production.
-
-3. Pour la configuration d'Elasticsearch, suivez les instructions de la documentation officielle d'Elasticsearch.
+              1. Créez un fichier .env à la racine du répertoire back-end-express-server et définissez les variables d'environnement requises :
+              
+              NODE_ENV=development
+              MONGODB_URI=mongodatabase://localhost:xxxx/monappdb
+              PORT=xxxx
+              
+              Assurez-vous d'ajuster les valeurs en fonction de votre environnement.
+              
+              2. Configurez le fichier .env.prod dans back-end-express-server pour les variables d'environnement de production.
+              
+              3. Pour la configuration d'Elasticsearch, suivez les instructions de la documentation officielle d'Elasticsearch.
 
 # Structure du Projet
 
