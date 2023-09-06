@@ -51,11 +51,13 @@ De plus, il intègre Docker pour la gestion des conteneurs et Elasticsearch pour
  2. Installer les dépendances du backend :
 
   cd back-end-express-server
+
   npm install
 
 3. Installer les dépendances du frontend :
 
   cd ../front-end-angular
+
   npm install
 
 # Configuration
@@ -77,9 +79,13 @@ Assurez-vous d'ajuster les valeurs en fonction de votre environnement.
 🔥 La structure du projet est organisée de la manière suivante :
 
 back-end-express-server: Contient le code source du backend Node.js.
+
 front-end-angular: Contient le code source du frontend Angular.
+
 haproxy: Contient les fichiers de configuration pour HAProxy (production uniquement).
+
 elasticsearch: Contient la configuration d'Elasticsearch.
+
 Autres dossiers et fichiers pertinents.
 
 # Utilisation
@@ -89,9 +95,11 @@ Autres dossiers et fichiers pertinents.
   Dans le répertoire #back-end-express-server, exécutez le backend :
   
   npm start
+
   Dans le répertoire #front-end-angular, exécutez le frontend :
   
   ng serve
+
   Ouvrez un navigateur et accédez à http://localhost:4200 pour voir l'application en cours d'exécution.
 
 # Pour exécuter le projet en mode de production avec Docker, consultez les instructions de déploiement dans docker-compose.prod.yml.
