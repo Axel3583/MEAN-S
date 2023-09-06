@@ -15,6 +15,9 @@
 # Contribuer
 # Licence
 
+
+****************************************************************
+
 # Aperçu
 
 Ce projet MEAN vise à créer une plateforme web qui permettra aux utilisateurs de faire X, Y et Z. 
