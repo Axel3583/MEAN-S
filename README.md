@@ -49,7 +49,8 @@ De plus, il intègre Docker pour la gestion des conteneurs et Elasticsearch pour
                1. Cloner le référentiel depuis GitHub :
               
                 git clone https://github.com/Axel3583/MEAN-S.git
-                cd votre-projet
+                
+                cd MEAN-S
               
                2. Installer les dépendances du backend :
               
@@ -79,31 +80,34 @@ De plus, il intègre Docker pour la gestion des conteneurs et Elasticsearch pour
 
 # Structure du Projet
 
-🔥 La structure du projet est organisée de la manière suivante :
-
-back-end-express-server: Contient le code source du backend Node.js.
-
-front-end-angular: Contient le code source du frontend Angular.
-
-haproxy: Contient les fichiers de configuration pour HAProxy (production uniquement).
-
-elasticsearch: Contient la configuration d'Elasticsearch.
-
-Autres dossiers et fichiers pertinents.
+              🔥 La structure du projet est organisée de la manière suivante :
+              
+              back-end-express-server: Contient le code source du backend Node.js.
+              
+              front-end-angular: Contient le code source du frontend Angular.
+              
+              haproxy: Contient les fichiers de configuration pour HAProxy (production uniquement).
+              
+              elasticsearch: Contient la configuration d'Elasticsearch.
+              
+              Autres dossiers et fichiers pertinents.
 
 # Utilisation
 
-  Pour lancer le projet en mode de développement, suivez ces étapes :
-  
-  Dans le répertoire #back-end-express-server, exécutez le backend :
-  
-  npm start
+                Pour lancer le projet en mode de développement, suivez ces étapes :
+                
+                Dans le répertoire #back-end-express-server, exécutez le backend :
+                
+                npm start
+              
+                Dans le répertoire #front-end-angular, exécutez le frontend :
+                
+                ng serve
+              
+                Ouvrez un navigateur et accédez à http://localhost:4200 pour voir l'application en cours d'exécution.
 
-  Dans le répertoire #front-end-angular, exécutez le frontend :
-  
-  ng serve
 
-  Ouvrez un navigateur et accédez à http://localhost:4200 pour voir l'application en cours d'exécution.
+****************************************************
 
 # Pour exécuter le projet en mode de production avec Docker, consultez les instructions de déploiement dans docker-compose.prod.yml.
 
