@@ -1,4 +1,4 @@
-# Utilisez une image de base Node.js
+# Utilisez une image de base Node.js pour construire le backend
 FROM node:latest
 
 # Créez un répertoire de travail
@@ -8,12 +8,12 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Installez les dépendances
-RUN npm install
+RUN npm install --production
 
 # Copiez le reste des fichiers
 COPY . .
 
-# Exposez le port
+# Exposez le port d'écoute du backend
 EXPOSE 3000
 
 # Commande de démarrage
