@@ -12,6 +12,9 @@ services:
   # Service MongoDB pour la base de données
   mongodb:
     image: mongo  # Utilise l'image officielle MongoDB depuis Docker Hub
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
     ports:
       - "27017:27017"  # Associe le port 27017 de l'hôte au port 27017 du conteneur MongoDB
     volumes:
