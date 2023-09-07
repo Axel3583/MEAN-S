@@ -8,7 +8,6 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
   
-
   login(username: string, password: number): Observable<any> {
     const body = { username, password };
     const headers = { 'Content-Type': 'application/json' };
