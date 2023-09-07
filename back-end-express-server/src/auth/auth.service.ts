@@ -1,49 +1,48 @@
-import {
-  ConflictException,
-  Injectable,
-  UnauthorizedException,
-} from '@nestjs/common';
-import { UsersService } from '../users/users.service';
+import { Injectable, ConflictException } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { UserModel } from 'src/users/Models/user.model';
+import { User } from './Schema/user.schema';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private usersService: UsersService,
+    @InjectModel('User') private readonly userModel: Model<User>,
     private readonly jwtService: JwtService,
   ) {}
 
-  bcrypt = require('bcrypt');
-  saltRounds = 10;
-  myPlaintextPassword = 's0//P4$$w0rD';
-  someOtherPlaintextPassword = 'not_bacon';
+  async signUp(signUpDto: {
+    username: string;
+    password: string;
+  }): Promise<{ token: string }> {
+    const { username, password } = signUpDto;
 
-  async signIn(username: string, pass: string): Promise<any> {
-    const user = await this.usersService.findOne(username);
-    if (!user || !(await this.bcrypt.compare(pass, user.password))) {
-      throw new UnauthorizedException('Identifiants incorrects.');
+    try {
+      // Étape 1 : Vérifie si l'utilisateur existe déjà
+      const existingUser = await this.userModel.findOne({ username }).exec();
+      if (existingUser) {
+        throw new ConflictException('Cet utilisateur existe déjà.');
+      }
+
+      // Étape 2 : Hashe le mot de passe pour le stockage sécurisé
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      // Étape 3 : Crée un nouvel utilisateur avec le nom d'utilisateur et le mot de passe hashé
+      const newUser = new this.userModel({
+        username,
+        password: hashedPassword,
+      });
+      const savedUser = await newUser.save();
+
+      // Étape 4 : Génére un jeton JWT (JSON Web Token) pour l'utilisateur
+      const token = this.jwtService.sign({ sub: savedUser._id });
+
+      // Étape 5 : Retourne le jeton JWT pour une utilisation ultérieure
+      return { token };
+    } catch (error) {
+      // Gére les erreurs possibles ici (par exemple, erreurs de validation, erreurs de base de données)
+      throw error;
     }
-
-    // Générez un token JWT pour l'utilisateur
-    const payload = { username: user.username, sub: UserModel._id };
-    const accessToken = this.jwtService.sign(payload);
-
-    return { access_token: accessToken };
-  }
-
-  async createUser(username: string, password: string): Promise<UserModel> {
-    // Vérifier si l'utilisateur existe déjà
-    const existingUser = await this.usersService.findOne(username);
-    if (existingUser) {
-      throw new ConflictException('Cet utilisateur existe déjà.');
-    }
-
-    // Créer un nouvel utilisateur
-    const newUser = new UserModel();
-    newUser.username = username;
-    newUser.password = await this.bcrypt.hash(password, 10); // Hasher le mot de passe avant de le stocker
-
-    return this.usersService.create(newUser);
   }
 }
