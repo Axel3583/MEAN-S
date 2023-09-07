@@ -51,18 +51,18 @@ export class AuthService {
 
   async login(loginDto: LoginDto): Promise<{ token: string }> {
     const { username, password } = loginDto;
-    // Étape 1 : Recherchez l'utilisateur par nom d'utilisateur
+    // Étape 1 : Recherche l'utilisateur par nom d'utilisateur
     const user = await this.userModel.findOne({ username });
-    // Étape 2 : Vérifiez si l'utilisateur existe
+    // Étape 2 : Vérifie si l'utilisateur existe
     if (!user) {
       throw new UnauthorizedException('Invalid username or password');
     }
-    // Étape 3 : Vérifiez le mot de passe
+    // Étape 3 : Vérifie le mot de passe
     const isPasswordMatch = await bcrypt.compare(password, user.password);
     if (!isPasswordMatch) {
       throw new UnauthorizedException('Invalid username or password');
     }
-    // Étape 4 : Générez un jeton JWT
+    // Étape 4 : Génére un jeton JWT
     const token = this.jwtService.sign({ sub: user._id });
     // Étape 5 : Retournez le jeton JWT pour une utilisation ultérieure
     return { token };
