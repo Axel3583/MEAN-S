@@ -1,6 +1,6 @@
 # Projet MEAN - Plateforme Web
 
-***Un projet MEAN (MongoDB, Express.js, Angular, Node.js) pour créer une plateforme web évolutive et performante, avec Docker et Elasticsearch.*
+*Un projet MEAN (MongoDB, Express.js, Angular, Node.js) pour créer une plateforme web évolutive et performante, avec Docker et Elasticsearch.*
 
 # Table des Matières
 # Aperçu
