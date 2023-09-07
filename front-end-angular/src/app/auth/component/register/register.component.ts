@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 
-
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginPageComponent implements OnInit{
+export class RegisterComponent implements OnInit{
 
   form: FormGroup;
   
@@ -24,10 +23,11 @@ export class LoginPageComponent implements OnInit{
 
   onSubmit(){
     console.log(this.form.value.username)
-    this.userService.signin(this.form.value.username, this.form.value.password).subscribe(response => {
+    this.userService.signup(this.form.value.username, this.form.value.password).subscribe(response => {
       console.log(response, 'passed')
     }, error => {
       console.log(error)
     });
   }
+
 }
